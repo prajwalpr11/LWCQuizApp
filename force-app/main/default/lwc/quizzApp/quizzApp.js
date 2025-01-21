@@ -1,6 +1,7 @@
 import { LightningElement } from 'lwc';
 
 export default class QuizzApp extends LightningElement {
+    selected = {}
     myQuestion = [
         {
             Id: "Question 1",
@@ -16,14 +17,14 @@ export default class QuizzApp extends LightningElement {
         },
         {
             Id: "Question 2",
-            question: "What is the capital of France?",
+            question: "What is the capital of USA?",
             answer: {
-                A: "Paris",
+                A: "DC",
                 B: "Lyon",
-                C: "Marseille",
-                D: "Nice"
+                C: "MA",
+                D: "NY"
             },
-            correctAnswer: "A"
+            correctAnswer: "b"
 
         },
         {
@@ -35,8 +36,17 @@ export default class QuizzApp extends LightningElement {
                 C: "chennai",
                 D: "Nice"
             },
-            correctAnswer: "A"
+            correctAnswer: "D"
 
         },
     ]
+
+    handleChange(event) {
+        console.log(event.target.value);
+        console.log(event.target.name);
+
+        const { name, value } = event.target;
+        this.selected = { ...this.selected, [name]: value };
+
+    }
 }
