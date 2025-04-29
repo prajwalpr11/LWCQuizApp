@@ -1,0 +1,11 @@
+<template>
+    <div>test Map</div>
+
+    <lightning-card label="Iterate Map">
+        <template for:each={mapRecords} for:item="item">
+
+            <p key={item.key}>{item.value.Name} - {item.value.Industry}</p>
+        </template>
+    </lightning-card>
+
+</template>
